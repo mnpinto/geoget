@@ -1,4 +1,9 @@
-# nbdev template
+# Project name here
+> Summary description here.
 
-Use this template to more easily create your nbdev project.
 
+## Install
+
+`pip install geoget`
+
+## How to use
