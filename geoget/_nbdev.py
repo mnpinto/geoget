@@ -2,10 +2,16 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"Ladsweb": "00_download.ipynb",
-         "geoget_ladsweb": "01_cli.ipynb"}
+index = {"geturl": "00_external.ipynb",
+         "sync": "00_external.ipynb",
+         "USERAGENT": "00_external.ipynb",
+         "DESC": "00_external.ipynb",
+         "Ladsweb": "01_download.ipynb",
+         "run_parallel": "01_download.ipynb",
+         "geoget_ladsweb": "02_cli.ipynb"}
 
-modules = ["download.py",
+modules = ["external.py",
+           "download.py",
            "cli.py"]
 
 doc_url = "https://mnpinto.github.io/geoget/"

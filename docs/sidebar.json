@@ -1,6 +1,7 @@
 {
   "geoget": {
     "Overview": "/",
+    "External": "/external",
     "Download": "/download",
     "CLI tools": "/cli"
   }
