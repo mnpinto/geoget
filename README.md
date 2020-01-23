@@ -1,9 +1,7 @@
-# Project name here
-> Summary description here.
+# GeoGet
+> Utility functions to download geo data.
 
 
 ## Install
 
 `pip install geoget`
-
-## How to use
