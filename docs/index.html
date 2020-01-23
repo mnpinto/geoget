@@ -35,6 +35,39 @@ summary: "Utility functions to download geo data."
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is an example of a .bash file to download data from <a href="https://ladsweb.modaps.eosdis.nasa.gov/">https://ladsweb.modaps.eosdis.nasa.gov/</a>. The email and authentication token (auth) need to be defined in order for the script to work. To create an account and an authentication token visit ladsweb website.</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l </span>
+<span class="nv">email</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="nv">auth</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="nv">bbox</span><span class="o">=</span><span class="s1">&#39;-10 36 0 44&#39;</span>
+<span class="nv">product</span><span class="o">=</span><span class="s2">&quot;NPP_VMAES_L1&quot;</span>
+<span class="nv">collection</span><span class="o">=</span><span class="s2">&quot;5000&quot;</span>
+<span class="nv">tstart</span><span class="o">=</span><span class="s2">&quot;2017-10-27 00:00:00&quot;</span>
+<span class="nv">tend</span><span class="o">=</span><span class="s1">&#39;2017-10-27 23:59:59&#39;</span>
+<span class="nv">path_save</span><span class="o">=</span><span class="s2">&quot;/srv/geoget/data&quot;</span>
+<span class="nv">bands</span><span class="o">=</span><span class="s2">&quot;Reflectance_M5 Reflectance_M7 Reflectance_M10 Radiance_M12 Radiance_M15 SolarZenithAngle SatelliteZenithAngle&quot;</span>
+
+geoget_ladsweb <span class="nv">$product</span> <span class="nv">$collection</span> <span class="s2">&quot;</span><span class="nv">$tstart</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$tend</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$bbox</span><span class="s2">&quot;</span> <span class="nv">$email</span> <span class="nv">$auth</span> <span class="nv">$path_save</span> <span class="s2">&quot;</span><span class="nv">$bands</span><span class="s2">&quot;</span> --repName <span class="s2">&quot;GEO&quot;</span> --repPixSize <span class="s2">&quot;0.01&quot;</span> --daynight <span class="s2">&quot;D&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Note:</strong> Library under development. Examples above were tested in Ubuntu 16.04 LTS.</p>
+
+</div>
+</div>
+</div>
 </div>
  
 
