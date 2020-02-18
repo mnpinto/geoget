@@ -54,7 +54,8 @@ class Ladsweb():
         order_size = self.order_size()
         n_splits = order_size // self._maxOrderSize + 1
         times = pd.date_range(self.tstart, self.tend)
-        splits = np.split(times, n_splits)
+        splits = np.split(times[:-(len(times) % n_splits)], n_splits)
+        splits[-1] = splits[-1].append(times[-(len(times) % n_splits):])
         times = [(str(t[0]), str(t[-1]+pd.Timedelta(days=1-1e-5).round('s'))) for t in splits]
         tstart, tend = zip(*times)
         kwargs = self.__dict__
