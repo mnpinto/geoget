@@ -109,15 +109,17 @@ class Ladsweb():
 
         for i in progress_bar(range(len(files))):
             file, checksum = files.loc[i, ['name', 'checksum']]
-            n_tries = 0
-            while ~files.loc[i, 'verified'] and n_tries<5:
-                #print(f'Downloading {file}')
-                with open(path_save/f'{file}', mode='w+b') as fh:
-                    geturl(f'{url}/{file}', auth, fh)
-                csum = os.popen(f'cksum {str(path_save)}/{file}').read().split(' ')[0]
-                if str(checksum) == 'nan': checksum = csum
-                files.loc[i, 'verified'] = checksum == csum
-                n_tries += 1
+            csum = os.popen(f'cksum {str(path_save)}/{file}').read().split(' ')[0]
+            if checksum != csum:
+                n_tries = 0
+                while ~files.loc[i, 'verified'] and n_tries<5:
+                    #print(f'Downloading {file}')
+                    with open(path_save/f'{file}', mode='w+b') as fh:
+                        geturl(f'{url}/{file}', auth, fh)
+                    csum = os.popen(f'cksum {str(path_save)}/{file}').read().split(' ')[0]
+                    if str(checksum) == 'nan': checksum = csum
+                    files.loc[i, 'verified'] = checksum == csum
+                    n_tries += 1
         log_file = f'download_log_{orderId}.csv'
         files.to_csv(path_save/log_file)
         not_verified = np.sum(~files.verified)
