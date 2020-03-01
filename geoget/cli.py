@@ -19,8 +19,6 @@ def geoget_ladsweb(
     tstart:Param("Start of serach window yyyy-mm-dd HH:MM:SS", str),
     tend:Param("End of search windo yyyy-mm-dd HH:MM:SS", str),
     bbox:Param("Bounding box in format left bottom right top", list),
-    email:Param("ladsweb user email", str),
-    auth:Param("ladsweb user authentication key (go to Profile>App Keys)", str),
     path_save:Param("Path to save the outputs of the request", str),
     bands:Param("List of bands to download", list),
     coordsOrTiles:Param("coordsOrTiles parameter", str, choices=["coords", "tiles"])="coords",
