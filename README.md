@@ -8,12 +8,20 @@
 
 ## How to use
 
-Here is an example of a .bash file to download data from https://ladsweb.modaps.eosdis.nasa.gov/. The email and authentication token (auth) need to be defined in order for the script to work. To create an account and an authentication token visit ladsweb website.
+Go to https://ladsweb.modaps.eosdis.nasa.gov/ and create an account and an authentication token. Then create `~/.ladsweb` file with the following format where you should write your email and token (key):
+```bash
+# To create an account and an authentication token visit ladsweb website.
+{
+    "url"   : "https://ladsweb.modaps.eosdis.nasa.gov",
+    "key"   : "",
+    "email" : ""
+}
+```
     
+The following bash script shows an example of how to make a request:
+
 ```bash
 #!/bin/bash -l 
-email=""
-auth=""
 bbox='-10 36 0 44'
 product="NPP_VMAES_L1"
 collection="5000"
@@ -22,7 +30,7 @@ tend='2017-10-27 23:59:59'
 path_save="/srv/geoget/data"
 bands="Reflectance_M5 Reflectance_M7 Reflectance_M10 Radiance_M12 Radiance_M15 SolarZenithAngle SatelliteZenithAngle"
 
-geoget_ladsweb $product $collection "$tstart" "$tend" "$bbox" $email $auth $path_save "$bands" --repName "GEO" --repPixSize "0.01" --daynight "D"
+geoget_ladsweb $product $collection "$tstart" "$tend" "$bbox" $path_save "$bands" --repName "GEO" --repPixSize "0.01" --daynight "D"
 ```
 
 **Note:** Library under development. Examples above were tested in Ubuntu 16.04 LTS.
