@@ -63,6 +63,7 @@ summary: "Utility functions to download geo data."
 
 geoget_ladsweb <span class="nv">$product</span> <span class="nv">$collection</span> <span class="s2">&quot;</span><span class="nv">$tstart</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$tend</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$bbox</span><span class="s2">&quot;</span> <span class="nv">$path_save</span> <span class="s2">&quot;</span><span class="nv">$bands</span><span class="s2">&quot;</span> --repName <span class="s2">&quot;GEO&quot;</span> --repPixSize <span class="s2">&quot;0.01&quot;</span> --daynight <span class="s2">&quot;D&quot;</span>
 </pre></div>
+<p>In case you need to stop the request (it may take a while until the files are available) you can later call <code>geoget_order_manager  .</code> on <code>path_save</code> directory and all requests in the log file will continue to be processed.</p>
 
 </div>
 </div>

@@ -33,4 +33,6 @@ bands="Reflectance_M5 Reflectance_M7 Reflectance_M10 Radiance_M12 Radiance_M15 S
 geoget_ladsweb $product $collection "$tstart" "$tend" "$bbox" $path_save "$bands" --repName "GEO" --repPixSize "0.01" --daynight "D"
 ```
 
+In case you need to stop the request (it may take a while until the files are available) you can later call `geoget_order_manager  .` on `path_save` directory and all requests in the log file will continue to be processed.
+
 **Note:** Library under development. Examples above were tested in Ubuntu 16.04 LTS.

@@ -173,8 +173,10 @@ def download_files(orderId, path_save, auth=None):
 
     for i in progress_bar(range(len(files))):
         file, checksum = files.loc[i, ['name', 'checksum']]
-        csum = os.popen(f'cksum {str(path_save)}/{file}').read().split(' ')[0]
-        if checksum != csum:
+        csum = None
+        if (Path(path_save)/file).is_file():
+            csum = os.popen(f'cksum {str(path_save)}/{file}').read().split(' ')[0]
+        if csum is None or checksum != csum:
             n_tries = 0
             while ~files.loc[i, 'verified'] and n_tries<5:
                 #print(f'Downloading {file}')

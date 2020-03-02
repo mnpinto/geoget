@@ -14,7 +14,8 @@ index = {"geturl": "00_external.ipynb",
          "release_order": "01_download.ipynb",
          "order_manager": "01_download.ipynb",
          "run_all": "01_download.ipynb",
-         "geoget_ladsweb": "02_cli.ipynb"}
+         "geoget_ladsweb": "02_cli.ipynb",
+         "geoget_order_manager": "02_cli.ipynb"}
 
 modules = ["external.py",
            "download.py",
