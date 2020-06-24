@@ -181,11 +181,13 @@ def download_files(orderId, path_save, auth=None):
             while ~files.loc[i, 'verified'] and n_tries<5:
                 #print(f'Downloading {file}')
                 with open(Path(path_save)/f'{file}', mode='w+b') as fh:
-                    geturl(f'{url}/{file}', auth, fh)
+                    try: geturl(f'{url}/{file}', auth, fh)
+                    except: warnings.warn(f'Unable to get {url}/{file}', UserWarning)
                 csum = os.popen(f'cksum {str(path_save)}/{file}').read().split(' ')[0]
                 if str(checksum) == 'nan': checksum = csum
                 files.loc[i, 'verified'] = checksum == csum
                 n_tries += 1
+        elif checksum == csum: files.loc[i, 'verified'] = True
     log_file = f'download_log_{orderId}.csv'
     files.to_csv(Path(path_save)/log_file)
     not_verified = np.sum(~files.verified)
@@ -239,7 +241,7 @@ def order_manager(path_save):
         n = 0
         for orderId in data:
             if data[orderId]['status'] in ['Complete', 'One or more files not verified',
-                                           'Canceled']:
+                                           'Canceled', 'Removed']:
                 n += 1
         stop = len(data) == n
         if stop: return
