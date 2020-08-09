@@ -67,12 +67,13 @@ class Ladsweb():
             raise Exception("`bands` list required to calculate order_size.")
         return len(self.search_files())*len(self.bands)
 
-    def split_times(self):
+    def split_times(self, maxOrderSize=None):
         "Split a single order into multiple orders if the order size is too large."
+        if maxOrderSize is None: maxOrderSize = self._maxOrderSize
         order_size = self.order_size()
-        if order_size <= self._maxOrderSize:
+        if order_size <= maxOrderSize:
             return [self]
-        n_splits = order_size // self._maxOrderSize + 1
+        n_splits = order_size // maxOrderSize + 1
         times = pd.date_range(self.tstart, self.tend)
         bk = -(len(times) % n_splits)
         if bk == 0: bk = None
