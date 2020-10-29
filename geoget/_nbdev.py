@@ -15,11 +15,24 @@ index = {"geturl": "00_external.ipynb",
          "order_manager": "01_download.ipynb",
          "run_all": "01_download.ipynb",
          "geoget_ladsweb": "02_cli.ipynb",
-         "geoget_order_manager": "02_cli.ipynb"}
+         "geoget_order_manager": "02_cli.ipynb",
+         "get_config": "03_era5.ipynb",
+         "send_request": "03_era5.ipynb",
+         "fwi_set": "03_era5.ipynb",
+         "era5_get_year": "03_era5.ipynb",
+         "era5land_get": "03_era5.ipynb",
+         "country_bounding_boxes": "04_geo.ipynb",
+         "dict2json": "04_geo.ipynb",
+         "Region": "04_geo.ipynb",
+         "RegionST": "04_geo.ipynb",
+         "GFS": "05_gfs.ipynb"}
 
 modules = ["external.py",
            "download.py",
-           "cli.py"]
+           "cli.py",
+           "era5.py",
+           "geo.py",
+           "gfs.py"]
 
 doc_url = "https://mnpinto.github.io/geoget/"
 

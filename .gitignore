@@ -1,5 +1,6 @@
 examples/
 data/
+GFS/
 *.bak
 .gitattributes
 .last_checked
