@@ -3,6 +3,9 @@
     "Overview": "/",
     "External": "/external",
     "Download": "/download",
-    "CLI tools": "/cli"
+    "CLI tools": "/cli",
+    "ERA5": "/era5",
+    "Geo": "/geo",
+    "GFS": "/gfs"
   }
 }

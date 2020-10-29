@@ -18,6 +18,15 @@ entries:
     - output: web,pdf
       title: CLI tools
       url: /cli
+    - output: web,pdf
+      title: ERA5
+      url: /era5
+    - output: web,pdf
+      title: Geo
+      url: /geo
+    - output: web,pdf
+      title: GFS
+      url: /gfs
     output: web
     title: geoget
   output: web
