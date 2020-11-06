@@ -87,7 +87,7 @@ description: "Functions to download GFS data"
           <span class="n">bands_sf</span>      <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TMP&#39;</span><span class="p">],</span> 
           <span class="n">bands_pl</span>      <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
           <span class="n">last_forecast</span> <span class="o">=</span> <span class="s1">&#39;f001&#39;</span><span class="p">)</span>
-<span class="n">gfs</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">delete_old</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">gfs</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">delete_old</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;GFS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()))</span>
 <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s1">&#39;.nc&#39;</span><span class="p">]</span>

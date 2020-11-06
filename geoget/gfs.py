@@ -98,7 +98,7 @@ class GFS():
             if log_tstr is not None:
                 if (str(log_tstr) == tstr) and (run_time == str(log_run_time)):
                     print('No new run is available.')
-                    return
+                    return False
             self.update_log(tstr, run_time)
 
         end_forecast = int(self.last_forecast[1:])+1
@@ -126,6 +126,7 @@ class GFS():
                         os.system(f'cd {path}; rm GFS{run_time}z_0_{f} GFS{run_time}z_1_{f} GFS{run_time}z_0_{f}.nc GFS_1_{f}.nc')
                     else:
                         os.system(f'cd {path}; rm GFS{run_time}z_{f}')
+        return True
 
     def __repr__(self):
         s = ''
