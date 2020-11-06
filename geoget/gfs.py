@@ -34,6 +34,11 @@ class GFS():
         self.last_forecast = last_forecast
         self.find_last = True
 
+        if not (self.path/'log.csv').is_file():
+            with open(self.path/'log.csv','a') as fd:
+                fd.write('date,run\n')
+
+
     def search_times(self):
         if self.find_last:
             url = f"https://nomads.ncep.noaa.gov/cgi-bin/filter_gfs_0p25_1hr.pl"
@@ -72,12 +77,34 @@ class GFS():
                    f'dir=%2Fgfs.{tstr}%2F{run_time}'
         return file_sf, file_pl
 
-    def run(self, to_netcdf=True, delete_old=False):
+    def update_log(self, tstr, run_time):
+        with open(self.path/'log.csv', 'a') as f:
+            f.write(f'{tstr},{run_time}\n')
+
+    @property
+    def last_log(self):
+        df = pd.read_csv(self.path/'log.csv')
+        if len(df)>=1:
+            return df.tail(1).values.reshape(-1)
+        else: return None, None
+
+
+    def run(self, to_netcdf=True, delete_old=False, replace=False):
         path = str(self.path)
         tstr, run_time = self.search_times()
+        log_tstr, log_run_time = self.last_log
+
+        if not replace:
+            if log_tstr is not None:
+                if (str(log_tstr) == tstr) and (run_time == str(log_run_time)):
+                    print('No new run is available.')
+                    return
+            self.update_log(tstr, run_time)
+
         end_forecast = int(self.last_forecast[1:])+1
         forecast_hours = [f'f{i:03d}' for i in range(1,end_forecast)]
         if delete_old: os.system(f'cd {path}; rm *.nc')
+
         for f in forecast_hours:
             print(f'Downloading data for {tstr} {run_time}z {f}.')
             files = self.search_files(tstr, run_time, f)
