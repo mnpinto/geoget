@@ -85,20 +85,20 @@ class GFS():
             if len(files)>0:
                 for i, file in enumerate(files):
                     if len(files)>1:
-                        assert os.system(f'wget "{file}" -O {path}/GFS_{i}_{f}') == 0
+                        assert os.system(f'wget "{file}" -O {path}/GFS{run_time}z_{i}_{f}') == 0
                     else:
-                        assert os.system(f'wget "{file}" -O {path}/GFS_{f}') == 0
+                        assert os.system(f'wget "{file}" -O {path}/GFS{run_time}z_{f}') == 0
                     if to_netcdf:
                         if len(files)>1:
-                            assert os.system(f'cd {path}; cdo -f nc copy GFS_{i}_{f} GFS_{i}_{f}.nc') == 0
+                            assert os.system(f'cd {path}; cdo -f nc copy GFS{run_time}z_{i}_{f} GFS{run_time}z_{i}_{f}.nc') == 0
                         else:
-                            assert os.system(f'cd {path}; cdo -f nc copy GFS_{f} GFS_{f}.nc') == 0
+                            assert os.system(f'cd {path}; cdo -f nc copy GFS{run_time}z_{f} GFS{run_time}z_{f}.nc') == 0
                 if to_netcdf:
                     if len(files)>1:
-                        os.system(f'cd {path}; cdo -O merge GFS_0_{f}.nc GFS_1_{f}.nc GFS_{f}.nc')
-                        os.system(f'cd {path}; rm GFS_0_{f} GFS_1_{f} GFS_0_{f}.nc GFS_1_{f}.nc')
+                        os.system(f'cd {path}; cdo -O merge GFS{run_time}z_0_{f}.nc GFS{run_time}z_1_{f}.nc GFS{run_time}z_{f}.nc')
+                        os.system(f'cd {path}; rm GFS{run_time}z_0_{f} GFS{run_time}z_1_{f} GFS{run_time}z_0_{f}.nc GFS_1_{f}.nc')
                     else:
-                        os.system(f'cd {path}; rm GFS_{f}')
+                        os.system(f'cd {path}; rm GFS{run_time}z_{f}')
 
     def __repr__(self):
         s = ''
