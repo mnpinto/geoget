@@ -26,7 +26,7 @@ class GFS():
         """
         self.path = path
         if isinstance(self.path, str): self.path = Path(self.path)
-        self.path.mkdir(exist_ok=True)
+        self.path.mkdir(exist_ok=True, parents=True)
         if bbox is None: bbox = [-180, -90, 180, 90]
         self.bbox = bbox # left, bottom, right, top
         self.bands_sf = bands_sf
@@ -96,7 +96,7 @@ class GFS():
 
         if not replace:
             if log_tstr is not None:
-                if (str(log_tstr) == tstr) and (run_time == str(log_run_time)):
+                if (str(log_tstr) == tstr) and (run_time == f'{log_run_time:02d}'):
                     print('No new run is available.')
                     return False
             self.update_log(tstr, run_time)
