@@ -61,6 +61,49 @@ class Ladsweb():
             f"&dayNightBoth={self.daynight}")
         return re.findall('<return>(.*?)</return>', requests.get(url).text)
 
+    def download_raw_files(self, path_save:Path):
+        authFile = os.path.expanduser('~/.ladsweb')
+        with open(authFile, 'r') as f:
+            f = json.load(f)
+            email = f['email']
+            auth = f['key']
+
+        if isinstance(path_save, str):
+            path_save = Path(path_save)
+            path_save.mkdir(exist_ok=True, parents=True)
+
+        # Get order ids
+        print('Searching for files...')
+        order_ids = self.search_files()
+
+        # Search filenames
+        filenames = []
+        for order_id in progress_bar(order_ids):
+            url = f'https://ladsweb.modaps.eosdis.nasa.gov/details/file/5000/{order_id}'
+            file = re.findall('<td>File Name</td><td>(.*?)</td>', requests.get(url).text)[0]
+            filenames.append(file)
+
+        pattern = r'^\w+.A(20[0-9][0-9])([0-3][0-9][0-9])..*$'
+
+        # Extract time from filenames
+        times = []
+        for f in filenames:
+            x = re.search(pattern, f)
+            if x is not None:
+                year, doy = map(x.group, [1,2])
+            times.append(pd.Timestamp(f'{year}-01-01') + pd.Timedelta(days=int(doy)-1))
+
+        # Download Files
+        print('Downloading files...')
+        for filename, time in progress_bar(zip(filenames, times), total=len(filenames)):
+            year = time.year
+            doy = time.dayofyear
+            url = f'https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/' \
+                  f'{self.collection}/{self.product}/{year}/{doy}/{filename}'
+            with open(f'{path_save/filename}', mode='w+b') as fh:
+                try: geturl(f'{url}', auth, fh)
+                except: warnings.warn(f'Unable to get {url}', UserWarning)
+
     def order_size(self):
         "Calculates the number of files in the order."
         if self.bands is None:

@@ -24,13 +24,15 @@ index = {"geturl": "00_external.ipynb",
          "country_bounding_boxes": "04_geo.ipynb",
          "dict2json": "04_geo.ipynb",
          "Region": "04_geo.ipynb",
-         "RegionST": "04_geo.ipynb"}
+         "RegionST": "04_geo.ipynb",
+         "GFS": "05_gfs.ipynb"}
 
 modules = ["external.py",
            "download.py",
            "cli.py",
            "era5.py",
-           "geo.py"]
+           "geo.py",
+           "gfs.py"]
 
 doc_url = "https://mnpinto.github.io/geoget/"
 
