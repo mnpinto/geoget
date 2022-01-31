@@ -66,7 +66,7 @@ class GFS():
                    f'&lev_10_m_above_ground=on&lev_2_m_above_ground=on&lev_mean_sea_level=on&lev_surface=on' \
                    f'{bands_sf}' \
                    f'&subregion=&leftlon={left}&rightlon={right}&toplat={top}&bottomlat={bottom}&' \
-                   f'dir=%2Fgfs.{tstr}%2F{run_time}'
+                   f'dir=%2Fgfs.{tstr}%2F{run_time}%2Fatmos'
         if self.bands_pl is not None:
             bands_pl = ''.join([f'&var_{v}=on' for v in self.bands_pl])
             file_pl = f'https://nomads.ncep.noaa.gov/cgi-bin/' \
@@ -74,7 +74,7 @@ class GFS():
                    f'&lev_1000_mb=on&lev_100_mb=on&lev_10_mb=on&lev_150_mb=on&lev_15_mb=on&lev_1_mb=on&lev_200_mb=on&lev_20_mb=on&lev_250_mb=on&lev_2_mb=on&lev_300_mb=on&lev_30_mb=on&lev_350_mb=on&lev_3_mb=on&lev_400_mb=on&lev_40_mb=on&lev_450_mb=on&lev_500_mb=on&lev_50_mb=on&lev_550_mb=on&lev_5_mb=on&lev_600_mb=on&lev_650_mb=on&lev_700_mb=on&lev_70_mb=on&lev_750_mb=on&lev_7_mb=on&lev_800_mb=on&lev_850_mb=on&lev_900_mb=on&lev_925_mb=on&lev_950_mb=on&lev_975_mb=on' \
                    f'&var_DPT=on&var_TMP=on&var_UGRD=on&var_VGRD=on' \
                    f'&subregion=&leftlon={left}&rightlon={right}&toplat={top}&bottomlat={bottom}&' \
-                   f'dir=%2Fgfs.{tstr}%2F{run_time}'
+                   f'dir=%2Fgfs.{tstr}%2F{run_time}%2Fatmos'
         return file_sf, file_pl
 
     def update_log(self, tstr, run_time):
