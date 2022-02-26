@@ -206,13 +206,13 @@ def download_files(orderId, path_save, auth=None):
         warnings.warn(msg, UserWarning)
         return
     url = f'https://ladsweb.modaps.eosdis.nasa.gov/archive/orders/{orderId}'
-    files = pd.DataFrame(json.loads(geturl(url + '.json', auth)))
+    #files = pd.DataFrame(json.loads(geturl(url + '.json', auth))) # no longer available
     checksums = geturl(url + f'/checksums_{orderId}', auth)
     hdfs = re.findall('(.*?.hdf)', checksums)
     ch = [tuple([k for k in h.split(' ') if k != '']) for h in hdfs]
-    check_df = pd.DataFrame(ch, columns=['checksum', 'size', 'name'])
-    check_df = check_df.drop('size', axis=1)
-    files = pd.merge(files, check_df, how='left', on='name')
+    files = pd.DataFrame(ch, columns=['checksum', 'size', 'name'])
+    files = files.drop('size', axis=1)
+    #files = pd.merge(files, check_df, how='left', on='name')
     files['verified'] = False
 
     for i in progress_bar(range(len(files))):
