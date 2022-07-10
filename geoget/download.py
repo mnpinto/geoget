@@ -99,7 +99,7 @@ class Ladsweb():
             year = time.year
             doy = time.dayofyear
             url = f'https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/' \
-                  f'{self.collection}/{self.product}/{year}/{doy}/{filename}'
+                  f'{self.collection}/{self.product}/{year}/{doy:03d}/{filename}'
             with open(f'{path_save/filename}', mode='w+b') as fh:
                 try: geturl(f'{url}', auth, fh)
                 except: warnings.warn(f'Unable to get {url}', UserWarning)
