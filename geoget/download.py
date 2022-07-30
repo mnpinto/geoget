@@ -61,7 +61,7 @@ class Ladsweb():
             f"&dayNightBoth={self.daynight}")
         return re.findall('<return>(.*?)</return>', requests.get(url).text)
 
-    def download_raw_files(self, path_save:Path):
+    def download_raw_files(self, path_save:Path, replace=False):
         authFile = os.path.expanduser('~/.ladsweb')
         with open(authFile, 'r') as f:
             f = json.load(f)
@@ -100,9 +100,12 @@ class Ladsweb():
             doy = time.dayofyear
             url = f'https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/' \
                   f'{self.collection}/{self.product}/{year}/{doy:03d}/{filename}'
-            with open(f'{path_save/filename}', mode='w+b') as fh:
-                try: geturl(f'{url}', auth, fh)
-                except: warnings.warn(f'Unable to get {url}', UserWarning)
+            fsave = f'{path_save/filename}'
+            if not Path(fsave).is_file() or replace:
+                with open(fsave, mode='w+b') as fh:
+                    try: geturl(f'{url}', auth, fh)
+                    except: warnings.warn(f'Unable to get {url}', UserWarning)
+            else: warnings.warn(f'{filename} already exists in {path_save} and replace is set to False')
 
     def order_size(self):
         "Calculates the number of files in the order."
