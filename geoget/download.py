@@ -102,9 +102,21 @@ class Ladsweb():
                   f'{self.collection}/{self.product}/{year}/{doy:03d}/{filename}'
             fsave = f'{path_save/filename}'
             if not Path(fsave).is_file() or replace:
-                with open(fsave, mode='w+b') as fh:
-                    try: geturl(f'{url}', auth, fh)
-                    except: warnings.warn(f'Unable to get {url}', UserWarning)
+                good_file = False
+                for _ in range(10):
+                    if not good_file:
+                        with open(fsave, mode='w+b') as fh:
+                            try:
+                                geturl(f'{url}', auth, fh)
+                            except:
+                                warnings.warn(f'Unable to get {url}', UserWarning)
+                        try:
+                            Dataset(fsave, mode='r')
+                            good_file = True
+                        except:
+                            warnings.warn(f'Failed to open netcdf. Trying to download again.')
+                            os.remove(fsave)
+                            sleep(10)
             else: warnings.warn(f'{filename} already exists in {path_save} and replace is set to False')
 
     def order_size(self):
