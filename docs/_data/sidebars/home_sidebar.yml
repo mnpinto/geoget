@@ -11,22 +11,22 @@ entries:
       url: /
     - output: web,pdf
       title: External
-      url: /external
+      url: external.html
     - output: web,pdf
       title: Download
-      url: /download
+      url: download.html
     - output: web,pdf
       title: CLI tools
-      url: /cli
+      url: cli.html
     - output: web,pdf
       title: ERA5
-      url: /era5
+      url: era5.html
     - output: web,pdf
       title: Geo
-      url: /geo
+      url: geo.html
     - output: web,pdf
       title: GFS
-      url: /gfs
+      url: gfs.html
     output: web
     title: geoget
   output: web

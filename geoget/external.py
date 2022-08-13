@@ -31,7 +31,7 @@ except ImportError:
 ################################################################################
 
 
-USERAGENT = 'tis/download.py_1.0--' + sys.version.replace('\n','').replace('\r','')
+USERAGENT = 'tis/download.py_1.0--' + sys.version.replace('\n','').replace('\n','')
 
 
 def geturl(url, token=None, out=None):

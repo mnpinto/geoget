@@ -1,11 +1,11 @@
 {
   "geoget": {
     "Overview": "/",
-    "External": "/external",
-    "Download": "/download",
-    "CLI tools": "/cli",
-    "ERA5": "/era5",
-    "Geo": "/geo",
-    "GFS": "/gfs"
+    "External": "external.html",
+    "Download": "download.html",
+    "CLI tools": "cli.html",
+    "ERA5": "era5.html",
+    "Geo": "geo.html",
+    "GFS": "gfs.html"
   }
 }

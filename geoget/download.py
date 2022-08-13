@@ -79,7 +79,7 @@ class Ladsweb():
         # Search filenames
         filenames = []
         for order_id in progress_bar(order_ids):
-            url = f'https://ladsweb.modaps.eosdis.nasa.gov/details/file/5000/{order_id}'
+            url = f'https://ladsweb.modaps.eosdis.nasa.gov/details/file/{self.collection}/{order_id}'
             file = re.findall('<td>File Name</td><td>(.*?)</td>', requests.get(url).text)[0]
             filenames.append(file)
 
