@@ -6,18 +6,18 @@
 
 `pip install geoget`
 
-## How to use
+## Setup ladsweb
+Visit the [ladsweb website](https://urs.earthdata.nasa.gov) and register. To find your Authorization Bearer token, goto https://ladsweb.modaps.eosdis.nasa.gov/archive/ and click Login > Generate Token and copy the token (do not use the tokens at https://urs.earthdata.nasa.gov/users/dctanner/user_tokens as these are different and will not work). Create the following config file at `~/.ladsweb`, inserting your email and the token under "key".
 
-Go to https://ladsweb.modaps.eosdis.nasa.gov/ and create an account and an authentication token. Then create `~/.ladsweb` file with the following format where you should write your email and token (key):
 ```bash
-# To create an account and an authentication token visit ladsweb website.
 {
     "url"   : "https://ladsweb.modaps.eosdis.nasa.gov",
     "key"   : "",
     "email" : ""
 }
 ```
-    
+
+## How to use
 The following bash script shows an example of how to make a request:
 
 ```bash
