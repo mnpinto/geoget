@@ -2,11 +2,13 @@
 
 title: Download
 
+
 keywords: fastai
 sidebar: home_sidebar
 
 summary: "Functions to download remote sensing data"
 description: "Functions to download remote sensing data"
+nb_path: "nbs/01_download.ipynb"
 ---
 <!--
 
@@ -38,21 +40,17 @@ description: "Functions to download remote sensing data"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Ladsweb" class="doc_header"><code>class</code> <code>Ladsweb</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L29" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Ladsweb</code>(<strong><code>product</code></strong>:<code>str</code>, <strong><code>collection</code></strong>:<code>str</code>, <strong><code>tstart</code></strong>:<code>str</code>, <strong><code>tend</code></strong>:<code>str</code>, <strong><code>bbox</code></strong>:<code>list</code>, <strong><code>bands</code></strong>:<code>list</code>=<em><code>None</code></em>, <strong><code>coordsOrTiles</code></strong>:<code>str</code>=<em><code>'coords'</code></em>, <strong><code>daynight</code></strong>:<code>str</code>=<em><code>'DNB'</code></em>, <strong><code>repName</code></strong>:<code>str</code>=<em><code>'GEO'</code></em>, <strong><code>repPixSize</code></strong>:<code>float</code>=<em><code>0.01</code></em>, <strong><code>repResample</code></strong>:<code>str</code>=<em><code>'bilinear'</code></em>, <strong><code>doMosaic</code></strong>:<code>str</code>=<em><code>'False'</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+<h2 id="Ladsweb" class="doc_header"><code>class</code> <code>Ladsweb</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L29" class="source_link" style="float:right">[source]</a></h2>
+<blockquote>
+<p><code>Ladsweb</code>(<strong><code>product</code></strong>:<code>str</code>, <strong><code>collection</code></strong>:<code>str</code>, <strong><code>tstart</code></strong>:<code>str</code>, <strong><code>tend</code></strong>:<code>str</code>, <strong><code>bbox</code></strong>:<code>list</code>, <strong><code>bands</code></strong>:<code>list</code>=<em><code>None</code></em>, <strong><code>coordsOrTiles</code></strong>:<code>str</code>=<em><code>'coords'</code></em>, <strong><code>daynight</code></strong>:<code>str</code>=<em><code>'DNB'</code></em>, <strong><code>repName</code></strong>:<code>str</code>=<em><code>'GEO'</code></em>, <strong><code>repPixSize</code></strong>:<code>float</code>=<em><code>0.01</code></em>, <strong><code>repResample</code></strong>:<code>str</code>=<em><code>'bilinear'</code></em>, <strong><code>doMosaic</code></strong>:<code>str</code>=<em><code>'False'</code></em>, ****<code>kwargs</code>**)</p>
 </blockquote>
 
 </div>
@@ -69,14 +67,24 @@ description: "Functions to download remote sensing data"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 <div class="output_wrapper">
 <div class="output">
 
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Ladsweb.search_files" class="doc_header"><code>Ladsweb.search_files</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L55" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Ladsweb.search_files</code>()</p>
+<h4 id="Ladsweb.search_files" class="doc_header"><code>Ladsweb.search_files</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L55" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>Ladsweb.search_files</code>()</p>
 </blockquote>
 <p>Search for files for the product, region and time span given.</p>
 
@@ -97,16 +105,15 @@ description: "Functions to download remote sensing data"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Testing files search</span>
-<span class="n">lads</span> <span class="o">=</span> <span class="n">Ladsweb</span><span class="p">(</span>
-    <span class="n">product</span><span class="o">=</span><span class="s1">&#39;NPP_VMAES_L1&#39;</span><span class="p">,</span> 
-    <span class="n">collection</span><span class="o">=</span><span class="s1">&#39;5000&#39;</span><span class="p">,</span> 
-    <span class="n">tstart</span><span class="o">=</span><span class="s1">&#39;2017-10-27 00:00:00&#39;</span><span class="p">,</span>
-    <span class="n">tend</span><span class="o">=</span><span class="s1">&#39;2017-10-27 23:59:59&#39;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lads</span> <span class="o">=</span> <span class="n">Ladsweb</span><span class="p">(</span>
+    <span class="n">product</span><span class="o">=</span><span class="s1">'NPP_VMAES_L1'</span><span class="p">,</span> 
+    <span class="n">collection</span><span class="o">=</span><span class="s1">'5000'</span><span class="p">,</span> 
+    <span class="n">tstart</span><span class="o">=</span><span class="s1">'2017-10-27 00:00:00'</span><span class="p">,</span>
+    <span class="n">tend</span><span class="o">=</span><span class="s1">'2017-10-27 23:59:59'</span><span class="p">,</span>
     <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">44</span><span class="p">],</span> <span class="c1"># left bottom right top</span>
-    <span class="n">daynight</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="c1"># D N DNB</span>
+    <span class="n">daynight</span><span class="o">=</span><span class="s1">'D'</span><span class="p">)</span> <span class="c1"># D N DNB</span>
 
-<span class="n">test_eq</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lads</span><span class="o">.</span><span class="n">search_files</span><span class="p">()),</span> <span class="s1">&#39;2857074643,2857122490,2857117946&#39;</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lads</span><span class="o">.</span><span class="n">search_files</span><span class="p">()),</span> <span class="s1">'2857074643,2857122490,2857117946'</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -126,8 +133,11 @@ description: "Functions to download remote sensing data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Ladsweb.order_size" class="doc_header"><code>Ladsweb.order_size</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L107" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Ladsweb.order_size</code>()</p>
+<h4 id="Ladsweb.order_size" class="doc_header"><code>Ladsweb.order_size</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L131" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>Ladsweb.order_size</code>()</p>
 </blockquote>
 <p>Calculates the number of files in the order.</p>
 
@@ -138,8 +148,11 @@ description: "Functions to download remote sensing data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Ladsweb.split_times" class="doc_header"><code>Ladsweb.split_times</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L113" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Ladsweb.split_times</code>(<strong><code>maxOrderSize</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="Ladsweb.split_times" class="doc_header"><code>Ladsweb.split_times</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L137" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>Ladsweb.split_times</code>(<strong><code>maxOrderSize</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Split a single order into multiple orders if the order size is too large.</p>
 
@@ -150,8 +163,11 @@ description: "Functions to download remote sensing data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Ladsweb.send_order" class="doc_header"><code>Ladsweb.send_order</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L134" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Ladsweb.send_order</code>(<strong><code>ids</code></strong>)</p>
+<h4 id="Ladsweb.send_order" class="doc_header"><code>Ladsweb.send_order</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L158" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>Ladsweb.send_order</code>(<strong><code>ids</code></strong>)</p>
 </blockquote>
 <p>Send order for a set of ids obtained with <code>search_files</code> method.</p>
 
@@ -162,8 +178,11 @@ description: "Functions to download remote sensing data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Ladsweb.run" class="doc_header"><code>Ladsweb.run</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L152" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Ladsweb.run</code>(<strong><code>path_save</code></strong>)</p>
+<h4 id="Ladsweb.run" class="doc_header"><code>Ladsweb.run</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L176" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>Ladsweb.run</code>(<strong><code>path_save</code></strong>)</p>
 </blockquote>
 <p>Send request and update log file.</p>
 
@@ -181,21 +200,17 @@ description: "Functions to download remote sensing data"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="read_log" class="doc_header"><code>read_log</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L171" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>read_log</code>(<strong><code>file</code></strong>)</p>
+<h4 id="read_log" class="doc_header"><code>read_log</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L195" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>read_log</code>(<strong><code>file</code></strong>)</p>
 </blockquote>
 <p>Read log file.</p>
 
@@ -219,8 +234,11 @@ description: "Functions to download remote sensing data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="update_log" class="doc_header"><code>update_log</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L177" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>update_log</code>(<strong><code>file</code></strong>, <strong><code>orderId</code></strong>, <strong><code>status</code></strong>)</p>
+<h4 id="update_log" class="doc_header"><code>update_log</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L201" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>update_log</code>(<strong><code>file</code></strong>, <strong><code>orderId</code></strong>, <strong><code>status</code></strong>)</p>
 </blockquote>
 <p>Update log file.</p>
 
@@ -244,8 +262,11 @@ description: "Functions to download remote sensing data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="order_status" class="doc_header"><code>order_status</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L194" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>order_status</code>(<strong><code>orderId</code></strong>)</p>
+<h4 id="order_status" class="doc_header"><code>order_status</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L218" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>order_status</code>(<strong><code>orderId</code></strong>)</p>
 </blockquote>
 <p>Check order status.</p>
 
@@ -269,8 +290,11 @@ description: "Functions to download remote sensing data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="download_files" class="doc_header"><code>download_files</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L200" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>download_files</code>(<strong><code>orderId</code></strong>, <strong><code>path_save</code></strong>, <strong><code>auth</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="download_files" class="doc_header"><code>download_files</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L224" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>download_files</code>(<strong><code>orderId</code></strong>, <strong><code>path_save</code></strong>, <strong><code>auth</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Download files if the order is Available.</p>
 
@@ -294,8 +318,11 @@ description: "Functions to download remote sensing data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="release_order" class="doc_header"><code>release_order</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L243" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>release_order</code>(<strong><code>orderId</code></strong>, <strong><code>email</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="release_order" class="doc_header"><code>release_order</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L267" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>release_order</code>(<strong><code>orderId</code></strong>, <strong><code>email</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>To release order after download the files.</p>
 
@@ -319,8 +346,11 @@ description: "Functions to download remote sensing data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="order_manager" class="doc_header"><code>order_manager</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L251" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>order_manager</code>(<strong><code>path_save</code></strong>)</p>
+<h4 id="order_manager" class="doc_header"><code>order_manager</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L275" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>order_manager</code>(<strong><code>path_save</code></strong>)</p>
 </blockquote>
 <p>Manage active orders in log file. Check the status and download the files for each order</p>
 
@@ -344,8 +374,11 @@ description: "Functions to download remote sensing data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="run_all" class="doc_header"><code>run_all</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L294" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>run_all</code>(<strong><code>request_list</code></strong>, <strong><code>path_save</code></strong>)</p>
+<h4 id="run_all" class="doc_header"><code>run_all</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/download.py#L318" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>run_all</code>(<strong><code>request_list</code></strong>, <strong><code>path_save</code></strong>)</p>
 </blockquote>
 <p>Send a list of requests and initiate order manager.</p>
 
@@ -359,6 +392,13 @@ description: "Functions to download remote sensing data"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
 </div>
- 
+    {% endraw %}
+
+</div>
+
 

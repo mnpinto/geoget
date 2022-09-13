@@ -1,5 +1,3 @@
-For help with the library join my discord server: https://discord.gg/vpnTAw4q62
-
 # GeoGet
 > Utility functions to download geo data.
 

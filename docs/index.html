@@ -2,10 +2,13 @@
 
 title: GeoGet
 
+
 keywords: fastai
 sidebar: home_sidebar
 
 summary: "Utility functions to download geo data."
+description: "Utility functions to download geo data."
+nb_path: "nbs/index.ipynb"
 ---
 <!--
 
@@ -18,13 +21,17 @@ summary: "Utility functions to download geo data."
 -->
 
 <div class="container" id="notebook-container">
+        
+    {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Install">Install<a class="anchor-link" href="#Install">&#182;</a></h2>
+<h2 id="Install">Install<a class="anchor-link" href="#Install"> </a></h2>
 </div>
 </div>
 </div>
@@ -37,13 +44,13 @@ summary: "Utility functions to download geo data."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use">&#182;</a></h2>
+<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Go to <a href="https://ladsweb.modaps.eosdis.nasa.gov/">https://ladsweb.modaps.eosdis.nasa.gov/</a> and create an account and an authentication token. Then create <code>~/.ladsweb</code> file with the following format where you should write your email and token (key):</p>
+<p>Go to https://ladsweb.modaps.eosdis.nasa.gov/ and create an account and an authentication token. Then create <code>~/.ladsweb</code> file with the following format where you should write your email and token (key):</p>
 <div class="highlight"><pre><span></span><span class="c1"># To create an account and an authentication token visit ladsweb website.</span>
 <span class="o">{</span>
     <span class="s2">&quot;url&quot;</span>   : <span class="s2">&quot;https://ladsweb.modaps.eosdis.nasa.gov&quot;</span>,
@@ -63,7 +70,7 @@ summary: "Utility functions to download geo data."
 
 geoget_ladsweb <span class="nv">$product</span> <span class="nv">$collection</span> <span class="s2">&quot;</span><span class="nv">$tstart</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$tend</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$bbox</span><span class="s2">&quot;</span> <span class="nv">$path_save</span> <span class="s2">&quot;</span><span class="nv">$bands</span><span class="s2">&quot;</span> --repName <span class="s2">&quot;GEO&quot;</span> --repPixSize <span class="s2">&quot;0.01&quot;</span> --daynight <span class="s2">&quot;D&quot;</span>
 </pre></div>
-<p>In case you need to stop the request (it may take a while until the files are available) you can later call <code>geoget_order_manager  .</code> on <code>path_save</code> directory and all requests in the log file will continue to be processed.</p>
+<p>In case you need to stop the request (it may take a while until the files are available) you can later call <code>geoget_order_manager .</code> on <code>path_save</code> directory and all requests in the log file will continue to be processed.</p>
 
 </div>
 </div>
@@ -76,5 +83,5 @@ geoget_ladsweb <span class="nv">$product</span> <span class="nv">$collection</sp
 </div>
 </div>
 </div>
- 
+
 

@@ -44,7 +44,7 @@ def geturl(url, token=None, out=None):
         if sys.version_info.major == 2:
             import urllib2
             try:
-                fh = urllib2.urlopen(urllib2.Request(url, headers=headers), context=CTX)
+                fh = urllib2.urlopen(urllib2.Request(url, headers=headers), context=CTX, timeout=120)
                 if out is None:
                     return fh.read()
                 else:
@@ -59,7 +59,7 @@ def geturl(url, token=None, out=None):
         else:
             from urllib.request import urlopen, Request, URLError, HTTPError
             try:
-                fh = urlopen(Request(url, headers=headers), context=CTX)
+                fh = urlopen(Request(url, headers=headers), context=CTX, timeout=120)
                 if out is None:
                     return fh.read().decode('utf-8')
                 else:

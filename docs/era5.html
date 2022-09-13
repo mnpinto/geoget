@@ -2,11 +2,13 @@
 
 title: ERA5
 
+
 keywords: fastai
 sidebar: home_sidebar
 
 summary: "Functions to download era5 data"
 description: "Functions to download era5 data"
+nb_path: "nbs/03_era5.ipynb"
 ---
 <!--
 
@@ -38,21 +40,17 @@ description: "Functions to download era5 data"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_config" class="doc_header"><code>get_config</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/era5.py#L17" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_config</code>(<strong><code>region</code></strong>:<a href="/geoget/geo#RegionST"><code>RegionST</code></a>, <strong><code>variables</code></strong>:<code>list</code>, <strong><code>year</code></strong>:<code>int</code>)</p>
+<h4 id="get_config" class="doc_header"><code>get_config</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/era5.py#L17" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>get_config</code>(<strong><code>region</code></strong>:<a href="/geoget/geo.html#RegionST"><code>RegionST</code></a>, <strong><code>variables</code></strong>:<code>list</code>, <strong><code>year</code></strong>:<code>int</code>)</p>
 </blockquote>
 
 </div>
@@ -75,8 +73,11 @@ description: "Functions to download era5 data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="send_request" class="doc_header"><code>send_request</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/era5.py#L27" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>send_request</code>(<strong><code>product</code></strong>:<code>str</code>, <strong><code>config</code></strong>:<code>dict</code>, <strong><code>filename</code></strong>:<code>str</code>)</p>
+<h4 id="send_request" class="doc_header"><code>send_request</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/era5.py#L27" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>send_request</code>(<strong><code>product</code></strong>:<code>str</code>, <strong><code>config</code></strong>:<code>dict</code>, <strong><code>filename</code></strong>:<code>str</code>)</p>
 </blockquote>
 
 </div>
@@ -99,8 +100,11 @@ description: "Functions to download era5 data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="fwi_set" class="doc_header"><code>fwi_set</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/era5.py#L32" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>fwi_set</code>()</p>
+<h4 id="fwi_set" class="doc_header"><code>fwi_set</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/era5.py#L32" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>fwi_set</code>()</p>
 </blockquote>
 
 </div>
@@ -123,8 +127,11 @@ description: "Functions to download era5 data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="era5_get_year" class="doc_header"><code>era5_get_year</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/era5.py#L36" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>era5_get_year</code>(<strong><code>year</code></strong>, <strong><code>region</code></strong>, <strong><code>save_path</code></strong>, <strong><code>variables</code></strong>, <strong><code>product</code></strong>)</p>
+<h4 id="era5_get_year" class="doc_header"><code>era5_get_year</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/era5.py#L36" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>era5_get_year</code>(<strong><code>year</code></strong>, <strong><code>region</code></strong>, <strong><code>save_path</code></strong>, <strong><code>variables</code></strong>, <strong><code>product</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -147,8 +154,11 @@ description: "Functions to download era5 data"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="era5land_get" class="doc_header"><code>era5land_get</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/era5.py#L41" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>era5land_get</code>(<strong><code>region</code></strong>, <strong><code>save_path</code></strong>, <strong><code>variables</code></strong>=<em><code>['10m_u_component_of_wind', '10m_v_component_of_wind', '2m_dewpoint_temperature', '2m_temperature', 'surface_pressure', 'total_precipitation']</code></em>, <strong><code>product</code></strong>=<em><code>'reanalysis-era5-land'</code></em>, <strong><code>max_workers</code></strong>=<em><code>8</code></em>)</p>
+<h4 id="era5land_get" class="doc_header"><code>era5land_get</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/era5.py#L41" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>era5land_get</code>(<strong><code>region</code></strong>, <strong><code>save_path</code></strong>, <strong><code>variables</code></strong>=<em><code>['10m_u_component_of_wind', '10m_v_component_of_wind', '2m_dewpoint_temperature', '2m_temperature', 'surface_pressure', 'total_precipitation']</code></em>, <strong><code>product</code></strong>=<em><code>'reanalysis-era5-land'</code></em>, <strong><code>max_workers</code></strong>=<em><code>8</code></em>)</p>
 </blockquote>
 
 </div>
@@ -157,6 +167,13 @@ description: "Functions to download era5 data"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -171,5 +188,5 @@ description: "Functions to download era5 data"
 </div>
 </div>
 </div>
- 
+
 

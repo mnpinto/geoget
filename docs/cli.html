@@ -2,10 +2,13 @@
 
 title: CLI tools
 
+
 keywords: fastai
 sidebar: home_sidebar
 
 summary: "Command line tools"
+description: "Command line tools"
+nb_path: "nbs/02_cli.ipynb"
 ---
 <!--
 
@@ -18,16 +21,23 @@ summary: "Command line tools"
 -->
 
 <div class="container" id="notebook-container">
+        
+    {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
+    {% endraw %}
 
-</div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
@@ -36,8 +46,11 @@ summary: "Command line tools"
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="geoget_ladsweb" class="doc_header"><code>geoget_ladsweb</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/cli.py#L15" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>geoget_ladsweb</code>(<strong><code>product</code></strong>:"Name of the product", <strong><code>collection</code></strong>:"Collection number", <strong><code>tstart</code></strong>:"Start of serach window yyyy-mm-dd HH:MM:SS", <strong><code>tend</code></strong>:"End of search windo yyyy-mm-dd HH:MM:SS", <strong><code>bbox</code></strong>:"Bounding box in format left bottom right top", <strong><code>path_save</code></strong>:"Path to save the outputs of the request", <strong><code>bands</code></strong>:"List of bands to download", <strong><code>coordsOrTiles</code></strong>:"coordsOrTiles parameter"=<em><code>'coords'</code></em>, <strong><code>daynight</code></strong>:"Select images for Day, Night or both"=<em><code>'DNB'</code></em>, <strong><code>repName</code></strong>:"Reprojection type"=<em><code>'GEO'</code></em>, <strong><code>repPixSize</code></strong>:"Pixel size in units depending on the reprojection type"=<em><code>0.01</code></em>, <strong><code>repResample</code></strong>:"Resampling method"=<em><code>'bilinear'</code></em>, <strong><code>doMosaic</code></strong>:""=<em><code>'False'</code></em>)</p>
+<h4 id="geoget_ladsweb" class="doc_header"><code>geoget_ladsweb</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/cli.py#L15" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>geoget_ladsweb</code>(<strong><code>product</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5cac5973d0&gt;</code>, <strong><code>collection</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5cac597580&gt;</code>, <strong><code>tstart</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c54a5f670&gt;</code>, <strong><code>tend</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c54a5f5e0&gt;</code>, <strong><code>bbox</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c5455d700&gt;</code>, <strong><code>path_save</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c5455d790&gt;</code>, <strong><code>bands</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c54a4f8b0&gt;</code>, <strong><code>coordsOrTiles</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c54a4f910&gt;</code>=<em><code>'coords'</code></em>, <strong><code>daynight</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c534aa8e0&gt;</code>=<em><code>'DNB'</code></em>, <strong><code>repName</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c534aa8b0&gt;</code>=<em><code>'GEO'</code></em>, <strong><code>repPixSize</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c5070ba90&gt;</code>=<em><code>0.01</code></em>, <strong><code>repResample</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c5109fee0&gt;</code>=<em><code>'bilinear'</code></em>, <strong><code>doMosaic</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c4ccc22e0&gt;</code>=<em><code>'False'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -48,9 +61,18 @@ summary: "Command line tools"
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Here is an example of a .bash file to download data using <a href="/geoget/cli#geoget_ladsweb"><code>geoget_ladsweb</code></a>. The <code>email</code> and authentication token (<code>auth</code>) need to be defined in order for the script to work. To create an account and an authentication token visit <a href="https://ladsweb.modaps.eosdis.nasa.gov/">https://ladsweb.modaps.eosdis.nasa.gov/</a>.</p>
+<p>Here is an example of a .bash file to download data using <a href="/geoget/cli.html#geoget_ladsweb"><code>geoget_ladsweb</code></a>. The <code>email</code> and authentication token (<code>auth</code>) need to be defined in order for the script to work. To create an account and an authentication token visit https://ladsweb.modaps.eosdis.nasa.gov/.</p>
 
 </div>
 </div>
@@ -72,9 +94,8 @@ geoget_ladsweb <span class="nv">$product</span> <span class="nv">$collection</sp
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
@@ -83,8 +104,11 @@ geoget_ladsweb <span class="nv">$product</span> <span class="nv">$collection</sp
 <div class="output_area">
 
 
+
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="geoget_order_manager" class="doc_header"><code>geoget_order_manager</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/cli.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>geoget_order_manager</code>(<strong><code>path_save</code></strong>:"Path where log file is saved.")</p>
+<h4 id="geoget_order_manager" class="doc_header"><code>geoget_order_manager</code><a href="https://github.com/mnpinto/geoget/tree/master/geoget/cli.py#L42" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>geoget_order_manager</code>(<strong><code>path_save</code></strong>:<code>&lt;fastscript.core.Param object at 0x7f5c4cd34760&gt;</code>)</p>
 </blockquote>
 
 </div>
@@ -95,6 +119,15 @@ geoget_ladsweb <span class="nv">$product</span> <span class="nv">$collection</sp
 </div>
 
 </div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l </span>
@@ -106,5 +139,5 @@ geoget_ladsweb <span class="nv">$path_save</span>
 </div>
 </div>
 </div>
- 
+
 
