@@ -80,8 +80,17 @@ class Ladsweb():
         filenames = []
         for order_id in progress_bar(order_ids):
             url = f'https://ladsweb.modaps.eosdis.nasa.gov/details/file/{self.collection}/{order_id}'
-            file = re.findall('<td>File Name</td><td>(.*?)</td>', requests.get(url).text)[0]
-            filenames.append(file)
+            # Ladsweb will sometimes return 504 timeouts, so we retry up to 10 times
+            good_file = False
+            for _ in range(10):
+                if not good_file:
+                    try:
+                        file = re.findall('<td>File Name</td><td>(.*?)</td>', requests.get(url).text)[0]
+                        filenames.append(file)
+                        good_file = True
+                    except:
+                        warnings.warn(f'Unable to get {url} (most likely receieved 504 Gateway Time-out). Retrying.', UserWarning)
+                        sleep(10)
 
         pattern = r'^\w+.A(20[0-9][0-9])([0-3][0-9][0-9])..*$'
 
@@ -108,8 +117,8 @@ class Ladsweb():
                         with open(fsave, mode='w+b') as fh:
                             try:
                                 geturl(f'{url}', auth, fh)
-                            except:
-                                warnings.warn(f'Unable to get {url}', UserWarning)
+                            except Exception as e:
+                                warnings.warn(f'Unable to get {url}. Exception {e}', UserWarning)
                         try:
                             Dataset(fsave, mode='r')
                             good_file = True
